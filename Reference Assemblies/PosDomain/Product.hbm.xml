@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="false">
+
+	<class name="DCS.PlaycardBase.Core.PosDomain.Product,DCS.PlaycardBase.Core" table="cnfCashierTransTypes" lazy="false">
+		<id name="Id">
+			<generator class="identity" />
+		</id>
+
+		<property name="Name" not-null="true"/>
+		<property name="NeedsCard" not-null="true"/> 
+		<property name="SellsNewCard" not-null="true"/>
+		<property name="StatusToAdd" not-null="false"/>
+		<property name="IsPartyPayment" not-null="true"/>
+		<property name="IsReturnable" not-null="true"/>
+		<property name="UnitCost" not-null="true"/>
+		<property name="Stock" not-null="true"/>
+		<property name="StockProduct" not-null="true"/>
+		<property name="InvoiceText" not-null="false"/>
+		<property name="DateMatrixId" not-null="false"/>
+		<property name="CardRangeId" not-null="false"/>
+		<property name="Price" not-null="true"/>
+		<property name="PriceSp" not-null="false"/>
+		<property name="RetailProductId" not-null="false"/>
+		<property name="PriceMode" not-null="true"/>
+		<property name="ValidFromDate" not-null="false"/>
+		<property name="ValidToDate" not-null="false"/>
+		<property name="Deleted" not-null="true"/>
+		<property name="PaysTax" not-null="true"/>
+		<property name="LimitPerDayPerCard" not-null="false"/>
+		<property name="Extra1" not-null="false"/>
+		<property name="Extra2" not-null="false"/>
+		<property name="Extra3" not-null="false"/>
+		<property name="Extra4" not-null="false"/>
+		<property name="Barcode" not-null="false"/>
+		<property name="SecurityLevel" not-null="false"/>
+		<property name="ProductType" not-null="true"/>
+
+    <set name="CounterMovements" inverse="true" lazy="false">
+      <key column="ProductId"/>
+      <one-to-many class="DCS.PlaycardBase.Core.PosDomain.ProductCounterMovement" />
+    </set>
+    
+		<set name="Groups" table="cnfProducts_ProductGroups">
+			<key column="ProductID" />
+			<many-to-many class="DCS.PlaycardBase.Core.PosDomain.ProductGroup" column="ProductGroupID"/>
+		</set>
+
+    <set name="TaxTypes" lazy="false" inverse="true">
+      <key column="ProductId"/>
+      <one-to-many class="DCS.PlaycardBase.Core.PosDomain.TaxType" />
+      <loader query-ref="GetTaxTypesForProductId2"/>
+      
+    </set>
+    
+	</class>
+
+  <sql-query name="GetTaxTypesForProductId2">
+    <load-collection alias="tt" role="DCS.PlaycardBase.Core.PosDomain.Product.TaxTypes"/>
+    DECLARE @PaysTax BIT
+
+    SELECT @PaysTax = PaysTax
+    FROM cnfCashierTransTypes
+    WHERE ID = :Id
+    
+    IF @PaysTax = 1
+        BEGIN
+        (SELECT cnfTaxTypes.*, :Id as 'ProductId'
+        FROM cnfTaxTypes
+        INNER JOIN cnfTaxTypes_ProductGroups
+        INNER JOIN cnfProductGroups
+        INNER JOIN cnfProducts_ProductGroups
+        ON cnfProducts_ProductGroups.ProductGroupID = cnfProductGroups.ID
+        ON cnfProductGroups.ID = cnfTaxTypes_ProductGroups.ProductGroupID
+        ON cnfTaxTypes_ProductGroups.TaxTypeID = cnfTaxTypes.ID
+
+        WHERE cnfProducts_ProductGroups.ProductID = :Id AND cnfTaxTypes.ApplyToEveryThing=0 AND
+        cnfTaxTypes.Deleted=0
+        )
+        UNION
+        (
+        SELECT cnfTaxTypes.*, :Id as 'ProductId'
+        FROM cnfTaxTypes
+        WHERE cnfTaxTypes.ApplyToEveryThing=1 AND cnfTaxTypes.Deleted=0
+        )
+
+        ORDER BY cnfTaxTypes.ID
+    END
+  </sql-query>
+
+  <sql-query name="GetTaxTypesForProductId">
+    <return class="DCS.PlaycardBase.Core.PosDomain.TaxType,DCS.PlaycardBase.Core"/>
+    exec sp_GetTaxTypesForProduct_v101 :Id
+  </sql-query>
+  
+
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+	<class name="DCS.PlaycardBase.Core.PosDomain.ProductGroup,DCS.PlaycardBase.Core" table="cnfProductGroups" lazy="false">
+		<id name="Id">
+			<generator class="identity" />
+		</id>
+
+		<property name="Description" not-null="true"/>
+		<property name="Deleted" not-null="true"/>
+
+		<set name="Products" table="cnfProducts_ProductGroups" lazy="false">
+			<key column="ProductGroupID" />
+			<many-to-many class="DCS.PlaycardBase.Core.PosDomain.Product" column="ProductID"/>
+		</set>
+		
+	</class>
+
+</hibernate-mapping>

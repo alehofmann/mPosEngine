@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="DCS.mPosEngine.Core.Domain.Sales.OperationTaxInfoItem,DCS.mPosEngine.Core" table="mPosTaxPayments" lazy="false">
+    <id name="Id">
+      <generator class="identity" />
+    </id>
+    
+    <many-to-one name="ParentOperation" class="DCS.mPosEngine.Core.Domain.Sales.MPosOperation,DCS.mPosEngine.Core" column="mPosOperationId" unique="false" not-null="true"/>
+
+    <property name="TaxAmount" column="Amount" not-null="true"/>    
+    <property name="TaxTypeId" not-null="true"/>    
+  </class>
+
+</hibernate-mapping>

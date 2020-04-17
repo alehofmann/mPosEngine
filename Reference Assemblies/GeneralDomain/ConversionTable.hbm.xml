@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="DCS.PlaycardBase.Core.GeneralDomain.ConversionTable,DCS.PlaycardBase.Core" table="cnfConversionTables"  lazy="false">
+    <id name="Id">
+      <generator class="identity" />
+    </id>
+
+    <property name="Name" not-null="true"/>
+            
+
+    <set name="Items" inverse="true" cascade="all-delete-orphan" lazy="false" order-by="OriginalAmount desc">
+      <key column="ConversionTableId"/>
+      <one-to-many class="DCS.PlaycardBase.Core.GeneralDomain.ConversionTableItem"/>
+
+    </set>
+  </class>
+
+</hibernate-mapping>

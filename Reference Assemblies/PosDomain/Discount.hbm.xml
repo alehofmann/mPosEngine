@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+	<class name="DCS.PlaycardBase.Core.PosDomain.Discount,DCS.PlaycardBase.Core" table="cnfDiscounts" lazy="false">
+		<id name="Id">
+			<generator class="identity" />
+		</id>
+
+		<property name="Name" not-null="true"/>
+		<property name="DiscountPercent" not-null="false"/>
+		<property name="DiscountAmount" not-null="false"/>
+		<property name="MinQuantity" not-null="false"/>
+		<property name="ApplyToEverything" not-null="true"/>
+		<property name="ApplyToEntireTransaction" not-null="true"/>
+		<property name="AgreementId" not-null="false"/>
+		<property name="EnforceAgreementMembership" not-null="true"/>
+		<property name="Deleted" not-null="true"/>
+
+		<set name="IncludedProducts" table="cnfDiscounts_Products">
+			<key column="DiscountID" />
+			<many-to-many class="DCS.PlaycardBase.Core.PosDomain.Product" column="ProductID"/>
+		</set>
+
+		<set name="IncludedProductGroups" table="cnfDiscounts_ProductGroups">
+			<key column="DiscountId" />
+			<many-to-many class="DCS.PlaycardBase.Core.PosDomain.ProductGroup" column="ProductGroupID"/>
+		</set>
+		
+	</class>
+
+</hibernate-mapping>

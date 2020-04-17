@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="DCS.mPosEngine.Core.Domain.Sales.Voucher, DCS.mPosEngine.Core" lazy="false">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Redeemed" not-null="true"/>    
+    <property name="RedeemableForCash" not-null="true"/>
+    <property name="Amount" not-null="true"/>
+  </class>
+
+  <sql-query name="GetVoucherByIdAndType">
+    <return class="DCS.mPosEngine.Core.Domain.Sales.Voucher, DCS.mPosEngine.Core">
+      <return-property name="Redeemed" column="VoucherRedeemed"/>
+      <return-property name="RedeemableForCash" column="RedeemableForCash"/>
+      <return-property name="Amount" column="VoucherAmount"/>
+      <return-property name="Id" column="Id"/>
+    </return>
+    exec sp_GetVoucherInfoByIdAndType :VoucherId, :TypeId
+  </sql-query>
+</hibernate-mapping>

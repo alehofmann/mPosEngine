@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="DCS.mPosEngine.Core.Domain.Pagesets.ProductPage,DCS.mPosEngine.Core" table="mPosProductPages" lazy="false">
+    <id name="Id">
+      <generator class="assigned" />
+    </id>
+
+    <property name="PageName" not-null="true"/>
+
+    <set name="Products" table="mPosPages_Products" lazy="false">
+      <key column="PageId"/>
+      <many-to-many class="DCS.mPosEngine.Core.Domain.Sales.Product,DCS.mPosEngine.Core" column="ProductId"/>
+    </set>
+    
+    <!-- <set name="Buttons" inverse="true" cascade="all-delete-orphan" lazy="false">
+      <key column="PageId"/>
+      <one-to-many class="DCS.mPosEngine.Core.Domain.Pagesets.ProductButton"/>        
+    </set>-->
+
+  
+  </class>
+
+  <sql-query name="GetPagesForPos">
+    <return alias="page" class="DCS.mPosEngine.Core.Domain.Pagesets.ProductPage,DCS.mPosEngine.Core" />
+    select
+    mPosProductPages.Id,
+    mPosProductPages.PageName
+
+    from
+    mPosProductPages
+
+    inner join
+    mPosPages_PosName
+    on mPosPages_PosName.ProductPageId=mPosProductPages.Id
+
+    WHERE
+    mPosPages_PosName.PosName = :posName
+
+  </sql-query>
+
+
+</hibernate-mapping>

@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DCS.mPosEngine.WebService", "DCS.mPosEngine.Service\DCS.mPosEngine.WebService.vbproj", "{96992153-7DAB-49FE-AA6E-319ADAD1A6A2}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DCS.mPosEngine.Core", "DCS.mPosEngine.Core\DCS.mPosEngine.Core.vbproj", "{19F0608A-BE10-4291-8192-C11051FAFDC4}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DCS.mPosEngine.Services", "DCS.mPosEngine.Services\DCS.mPosEngine.Services.vbproj", "{9F7CAE2A-F74B-44B0-9CB6-031E4322904F}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DCS.mPosEngine.Data", "DCS.mPosEngine.Data\DCS.mPosEngine.Data.vbproj", "{58BD941D-C3BF-4153-9F59-9838C915866D}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DCS.mPosEngine.Tests", "DCS.mPosEngine.Tests\DCS.mPosEngine.Tests.vbproj", "{E32290E6-BD17-4853-B89C-BBC5CD269095}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96992153-7DAB-49FE-AA6E-319ADAD1A6A2}.Debug|x86.ActiveCfg = Debug|x86
+		{96992153-7DAB-49FE-AA6E-319ADAD1A6A2}.Debug|x86.Build.0 = Debug|x86
+		{96992153-7DAB-49FE-AA6E-319ADAD1A6A2}.Release|x86.ActiveCfg = Release|x86
+		{96992153-7DAB-49FE-AA6E-319ADAD1A6A2}.Release|x86.Build.0 = Release|x86
+		{19F0608A-BE10-4291-8192-C11051FAFDC4}.Debug|x86.ActiveCfg = Debug|x86
+		{19F0608A-BE10-4291-8192-C11051FAFDC4}.Debug|x86.Build.0 = Debug|x86
+		{19F0608A-BE10-4291-8192-C11051FAFDC4}.Release|x86.ActiveCfg = Release|x86
+		{19F0608A-BE10-4291-8192-C11051FAFDC4}.Release|x86.Build.0 = Release|x86
+		{9F7CAE2A-F74B-44B0-9CB6-031E4322904F}.Debug|x86.ActiveCfg = Debug|x86
+		{9F7CAE2A-F74B-44B0-9CB6-031E4322904F}.Debug|x86.Build.0 = Debug|x86
+		{9F7CAE2A-F74B-44B0-9CB6-031E4322904F}.Release|x86.ActiveCfg = Release|x86
+		{9F7CAE2A-F74B-44B0-9CB6-031E4322904F}.Release|x86.Build.0 = Release|x86
+		{58BD941D-C3BF-4153-9F59-9838C915866D}.Debug|x86.ActiveCfg = Debug|x86
+		{58BD941D-C3BF-4153-9F59-9838C915866D}.Debug|x86.Build.0 = Debug|x86
+		{58BD941D-C3BF-4153-9F59-9838C915866D}.Release|x86.ActiveCfg = Release|x86
+		{58BD941D-C3BF-4153-9F59-9838C915866D}.Release|x86.Build.0 = Release|x86
+		{E32290E6-BD17-4853-B89C-BBC5CD269095}.Debug|x86.ActiveCfg = Debug|x86
+		{E32290E6-BD17-4853-B89C-BBC5CD269095}.Debug|x86.Build.0 = Debug|x86
+		{E32290E6-BD17-4853-B89C-BBC5CD269095}.Release|x86.ActiveCfg = Release|x86
+		{E32290E6-BD17-4853-B89C-BBC5CD269095}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

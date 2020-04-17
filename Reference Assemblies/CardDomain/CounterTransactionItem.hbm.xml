@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+	<class name="DCS.PlaycardBase.Core.CardDomain.CounterTransactionItem,DCS.PlaycardBase.Core" table="logCounterTransactionsDetail"  lazy="false">
+		<id name="Id">
+			<generator class="identity" />
+		</id>
+		
+		<property name="Amount" not-null="true"/>
+		<property name="CardNumber" not-null="true"/>
+				
+		<many-to-one name="CounterType"
+					 class="DCS.PlaycardBase.Core.GeneralDomain.CounterType"
+					 column="CounterTypeId"					 
+					 not-null="true"					 
+					 
+					 />
+							  
+		<many-to-one name="CounterTransaction"
+					 class="DCS.PlaycardBase.Core.CardDomain.CounterTransaction"
+					 column="TransactionId"					 
+					 not-null="true"					 
+					 />
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="DCS.mPosEngine.Core.Domain.Sales.RedeemVoucher, DCS.mPosEngine.Core" lazy="false">
+    <id name="Id">
+      <generator class="native" />
+    </id>
+    <property name="Type" not-null="true"/>
+    <property name="Amount" not-null="true"/>
+    <property name="CashierId" not-null="true"/>
+    <property name="RedeemId" not-null="false"/>
+  </class>
+
+  <sql-query name="spRedeemVoucher">
+    <!--<return class="DCS.mPosEngine.Core.Domain.Sales.RedeemVoucher, DCS.mPosEngine.Core">
+      <return-property name="RedeemId" column="RedeemId"/>
+    </return>-->
+    <!--<return-property name="RedeemId" column="RedeemId"/>-->
+    exec spRedeemVoucher :Type, :Id, :Amount, :CashierId
+  </sql-query>
+</hibernate-mapping>

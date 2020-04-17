@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+	<class name="DCS.PlaycardBase.Core.GameDomain.GameInfo,DCS.PlaycardBase.Core" table="cnfMachinesMaster" lazy="false">
+		<id name="Id">
+			<generator class="identity" />
+		</id>
+
+		<property name="ShortName" not-null="true" column="LegacyShortName"/>
+		<property name="LongName" not-null="true" column="Description"/>
+    <property name="CategoriesMask" not-null="true" column="LegacyPropMask"/>
+    <property name="AttributesMask" not-null="true" column="LegacyAttribMask"/>
+    
+
+
+    <!-- <bag name="Attributes">
+      <subselect>
+        SELECT
+        attr.AttribName as Name,
+        attr.AttribHex as Id,
+        cnfMachinesMaster.ID as GameId
+        FROM GameAttributes attr
+        INNER JOIN
+        cnfMachinesMaster
+        ON
+        cnfMachinesMaster.LegacyAttribMask AND GameAttributes.AttribHex!=0
+        WHERE cnfMachinesMaster.ID=:Id
+      </subselect>
+      <key column="GameId"/>
+      <composite-element class="DCS.PlaycardBase.Core.GameDomain.GameAttribute,DCS.PlaycardBase.Core">
+        <property name="Id"/>
+        <property name="Name"/>        
+      </composite-element>
+    </bag>-->
+    <set name="Attributes" inverse="true" lazy="false">
+      <key column="GameId"/>
+      <one-to-many class="DCS.PlaycardBase.Core.GameDomain.GameAttribute,DCS.PlaycardBase.Core" />
+      <loader query-ref="attributes"/>
+    </set>
+ 
+     
+    
+	</class>
+  <sql-query name="attributes">
+    <load-collection alias="attr" role="DCS.PlaycardBase.Core.GameDomain.GameInfo.Attributes"/>
+    SELECT AttribName,AttribHex as 'Id',cnfMachinesMaster.Id as 'GameId'
+    FROM GameAttributes attr
+    INNER JOIN
+    cnfMachinesMaster
+    ON
+    (cnfMachinesMaster.LegacyAttribMask &amp; attr.AttribHex)!=0
+    WHERE cnfMachinesMaster.ID=:Id
+
+    <!-- select AttribName,AttribHex as 'Id' from GameAttributes attr    
+    WHERE (AttribHex &amp; :pepo) != 0-->
+  </sql-query>
+  
+</hibernate-mapping>

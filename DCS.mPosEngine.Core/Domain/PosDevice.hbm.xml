@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="DCS.mPosEngine.Core.Domain.PosDevice,DCS.mPosEngine.Core" table="mPosDevices" lazy="false">
+    <id name="Id">
+      <generator class="identity" />
+    </id>
+              
+    <property name="SerialNumber" not-null="false"/>
+    <property name="Name" not-null="true"/>
+    <property name="Enabled" not-null="true"/>
+    <property name="PairCode" not-null="false"/>
+    <property name="Deleted" not-null="true"/>
+    <property name="ComputerId" formula="(SELECT datStoreComputers.ID FROM datStoreComputers WHERE datStoreComputers.ComputerName = Name)"/>
+    
+    
+  </class>
+
+</hibernate-mapping>

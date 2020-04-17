@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="DCS.mPosEngine.Core.Domain.Sales.MPosOperation,DCS.mPosEngine.Core" table="mPosOperations" lazy="false">
+    <id name="Id">
+      <generator class="identity" />
+    </id>
+
+    <discriminator column="OperationType"
+			not-null="true"
+			type="System.String"/>
+    
+    <many-to-one name="Product" class="DCS.PlaycardBase.Core.PosDomain.Product,DCS.PlaycardBase.Core" column="PosProductId" unique="true" not-null="true"/>
+    <many-to-one name="Transaction" class="DCS.mPosEngine.Core.Domain.Sales.MPosTransaction,DCS.PlaycardBase.Core" column="mPosTransactionId" not-null="true"/>
+
+    <component name="FulfillmentData">
+      
+      <component name="CardOperation">
+      
+        <property name="OperationType" column="CardOperationType" not-null="false"/>
+        <property name="NewStatusId" column="CardNewStatusId" not-null="false"/>
+        <many-to-one name="CounterTransaction" class="DCS.PlaycardBase.Core.CardDomain.CounterTransaction,DCS.PlaycardBase.Core" cascade="all-delete-orphan" column="CounterTransactionId" unique="true" not-null="false"/>    
+      
+      </component>  
+    
+    </component>    
+
+
+    <set name="TaxItems" inverse="true" cascade="all-delete-orphan" lazy="false">
+      <key column="mPosOperationId"/>
+      <one-to-many class="DCS.mPosEngine.Core.Domain.Sales.OperationTaxInfoItem" />
+    </set>
+    
+    <!-- <component name="TaxInfo" insert="true" update="true" access="readonly" class="DCS.mPosEngine.Core.Domain.Sales.OperationTaxInfo,DCS.mPosEngine.Core">
+      <set name="TaxItems" inverse="true" cascade="all-delete-orphan" access="readonly" lazy="false">
+        <key column="mPosOperationId"/>
+        <one-to-many class="DCS.mPosEngine.Core.Domain.Sales.OperationTaxInfoItem" />
+      </set>
+    </component>-->
+    
+
+    <property name="PriceSettled" not-null="true"/>
+    <property name="Quantity" not-null="true"/>    
+    <property name="TotalSalesTax" access="readonly" column="TotalTax" not-null="true"/>
+    <property name="Subtotal" column="SubtotalAmount" access="readonly" not-null="true"/>
+    <property name="TotalToPay" column="TotalAmount" access="readonly" not-null="true"/>
+    <property name="SellsNewCard" column="CardSold" access="readonly" not-null="true"/>
+
+		<set name="DiscountItems" inverse="true" cascade="all-delete-orphan" lazy="false">
+			<key column="mPosOperationId"/>
+			<one-to-many class="DCS.mPosEngine.Core.Domain.Sales.OperationDiscountItem" />
+		</set>
+
+		<component name="Card">
+      <property name="CardNumber" not-null="false"/>
+    </component>
+
+    <subclass name="DCS.mPosEngine.Core.Domain.Sales.ProductSellOperation,DCS.mPosEngine.Core" discriminator-value="1" lazy="false">      
+    </subclass>
+
+    <subclass name="DCS.mPosEngine.Core.Domain.Sales.ProductReturnOperation,DCS.mPosEngine.Core" discriminator-value="2" lazy="false">
+    </subclass>
+	  	  
+	</class>
+
+</hibernate-mapping>

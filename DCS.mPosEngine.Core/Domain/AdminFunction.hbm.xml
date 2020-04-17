@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="DCS.mPosEngine.Core.Domain.AdminFunction,DCS.mPosEngine.Core" table="mPosAdminFunctions" lazy="false">
+    <id name="Id">
+      <generator class="assigned" />
+    </id>
+
+    <property name="Name" not-null="true"/>
+    <property name="SecurityActionId" not-null="true"/>
+    <property name="ForceReenterCredentials" not-null="true"/>
+    <property name="Enabled" not-null="true"/>
+    <property name="ThumbUrl" not-null="false"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{9F7CAE2A-F74B-44B0-9CB6-031E4322904F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>DCS.mPosEngine.Services</RootNamespace>
+    <AssemblyName>DCS.mPosEngine.Services</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\DCS.mPosEngine.Services.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\DCS.mPosEngine.Services.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.vb</CodeAnalysisModuleSuppressionsFile>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DCS.ConfigEngine, Version=1.2.0.0, Culture=neutral, PublicKeyToken=dfb205e369c62a07, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference Assemblies\DCS.ConfigEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="DCS.PassportEngine">
+      <HintPath>..\Reference Assemblies\DCS.PassportEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="DCS.PlaycardBase">
+      <HintPath>..\Reference Assemblies\DCS.PlaycardBase.dll</HintPath>
+    </Reference>
+    <Reference Include="DCS.PlaycardBase.Core">
+      <HintPath>..\Reference Assemblies\DCS.PlaycardBase.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DCS.PlaycardBase.Data">
+      <HintPath>..\Reference Assemblies\DCS.PlaycardBase.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="DCS.PlaycardBase.Services">
+      <HintPath>..\Reference Assemblies\DCS.PlaycardBase.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="DCS.ProjectBase.Core">
+      <HintPath>..\Reference Assemblies\DCS.ProjectBase.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DCS.ProjectBase.Data, Version=1.1.0.1, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference Assemblies\DCS.ProjectBase.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="DCS.SAR.OnlineSales.Interface">
+      <HintPath>..\Reference Assemblies\DCS.SAR.OnlineSales.Interface.dll</HintPath>
+    </Reference>
+    <Reference Include="DCS.TreasuryEngine, Version=1.7.0.0, Culture=neutral, PublicKeyToken=5f83d5141aac87b2, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference Assemblies\DCS.TreasuryEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Reference Assemblies\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Third Party\Json.NET\Bin\Net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\Reference Assemblies\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CardServices.vb" />
+    <Compile Include="Dto\AdminFunctionDto.vb" />
+    <Compile Include="Dto\AuthorizePaymentResponseDto.vb" />
+    <Compile Include="Dto\CardDataDto.vb" />
+    <Compile Include="Dto\CardHistoryLineDto.vb" />
+    <Compile Include="Dto\CardPassportDataDto.vb" />
+    <Compile Include="Dto\CardStatusDto.vb" />
+    <Compile Include="Dto\CardTransferResponseDto.vb" />
+    <Compile Include="Dto\CashItemDto.vb" />
+    <Compile Include="Dto\CheckAccessResponseDto.vb" />
+    <Compile Include="Dto\CheckDeviceResponseDto.vb" />
+    <Compile Include="Dto\CommitTransactionResponseDto.vb" />
+    <Compile Include="Dto\CommitTransactionCommandDto.vb" />
+    <Compile Include="Dto\CardTransferCommandDto.vb" />
+    <Compile Include="Dto\CardConsolidateCommandDto.vb" />
+    <Compile Include="Dto\CreditCardStatusDto.vb" />
+    <Compile Include="Dto\DiscountDto.vb" />
+    <Compile Include="Dto\DtoMapper.vb" />
+    <Compile Include="Dto\ExternalSystemDataDto.vb" />
+    <Compile Include="Dto\ExternalSystemParamsDto.vb" />
+    <Compile Include="Dto\GenericResultResponseDto.vb" />
+    <Compile Include="Dto\GetProductPagesResponseDto.vb" />
+    <Compile Include="Dto\InvoiceImageResponseDto.vb" />
+    <Compile Include="Dto\lineitemDto.vb" />
+    <Compile Include="Dto\MoneyOperationDto.vb" />
+    <Compile Include="Dto\PayItemDto.vb" />
+    <Compile Include="Dto\PosConfigDto.vb" />
+    <Compile Include="Dto\LoginDataDto.vb" />
+    <Compile Include="Dto\Mapper.vb" />
+    <Compile Include="Dto\PassportItemDto.vb" />
+    <Compile Include="Dto\PaymodeDto.vb" />
+    <Compile Include="Dto\ProductPageDto.vb" />
+    <Compile Include="Dto\RegisterDeviceResponseDto.vb" />
+    <Compile Include="Dto\ReturnCreditCardResponseDto.vb" />
+    <Compile Include="Dto\TaxInfoItemDto.vb" />
+    <Compile Include="Dto\TransactionCartDto.vb" />
+    <Compile Include="Dto\TransactionInfoDto.vb" />
+    <Compile Include="Dto\TreasuryBalanceDto.vb" />
+    <Compile Include="Dto\VoucherDto.vb" />
+    <Compile Include="Dto\VoucherItemDto.vb" />
+    <Compile Include="Payment\PaymentService.vb" />
+    <Compile Include="PosServices.vb" />
+    <Compile Include="Dto\ProductDto.vb" />
+    <Compile Include="ProductServices.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PurchasingServices.vb" />
+    <Compile Include="SecurityServices.vb" />
+    <Compile Include="TreasuryServices.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DCS.mPosEngine.Core\DCS.mPosEngine.Core.vbproj">
+      <Project>{19F0608A-BE10-4291-8192-C11051FAFDC4}</Project>
+      <Name>DCS.mPosEngine.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DCS.mPosEngine.Data\DCS.mPosEngine.Data.vbproj">
+      <Project>{58BD941D-C3BF-4153-9F59-9838C915866D}</Project>
+      <Name>DCS.mPosEngine.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="CCard">
+      <Guid>{4F71E7D5-AC7F-4723-8FDF-1EE461AF992C}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>2</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="CredentialManager">
+      <Guid>{C583AA41-08F8-42F3-9045-FF3279268598}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="DCSCDTLayer">
+      <Guid>{8A9A42FE-B7CC-46D0-9245-5AD49891AAC2}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="DCSSecurity">
+      <Guid>{C16B4414-D543-4696-A919-FA4964AA63FB}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Encrypt">
+      <Guid>{61FC482D-70DE-40E4-B438-25B75D287616}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBA">
+      <Guid>{000204EF-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>6</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>9</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

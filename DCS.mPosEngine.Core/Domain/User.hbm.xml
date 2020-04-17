@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="DCS.mPosEngine.Core.Domain.User,DCS.mPosEngine.Core" table="datSecUsers" lazy="false">
+    <id column="ID" name="Id">
+      <generator class="identity" />
+    </id>
+
+    
+    <property column="UserHandle" name="Handle" access="field.camelcase-underscore"/>
+    <property column="UserFirst" name="FirstName" access="field.camelcase-underscore"/>
+    <property column="UserLast" name="LastName" access="field.camelcase-underscore"/>
+    <property column="UserPassword" name="Password" access="field.camelcase-underscore"/>
+    <property name="CardNumber" access="field.camelcase-underscore"/>
+    <property name="Deleted" access="field.camelcase-underscore"/>    
+    
+  </class>
+
+</hibernate-mapping>

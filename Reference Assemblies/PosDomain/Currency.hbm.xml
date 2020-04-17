@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+	<class name="DCS.PlaycardBase.Core.PosDomain.Currency,DCS.PlaycardBase.Core" table="cnfCurrencies" lazy="false">
+		<id name="Id">
+			<generator class="identity" />
+		</id>
+
+		<property name="Name" not-null="false"/>
+		<property name="ExchangeRate" not-null="false"/>
+		<property name="DisplayMask" not-null="false"/>
+		<property name="PaymodeType" column="PaymodeTypeID" not-null="false"/>
+		<property name="AllowRefunds" not-null="false"/>
+		<property name="PinRequired" not-null="false"/>
+
+
+    <many-to-one name="CounterType" class="DCS.PlaycardBase.Core.GeneralDomain.CounterType,DCS.PlaycardBase.Core" cascade="none" column="CounterTypeID" unique="true" not-null="false"/>
+    
+		
+	</class>
+
+</hibernate-mapping>

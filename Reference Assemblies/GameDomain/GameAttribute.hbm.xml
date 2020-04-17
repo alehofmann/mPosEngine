@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+	<class name="DCS.PlaycardBase.Core.GameDomain.GameAttribute,DCS.PlaycardBase.Core" table="GameAttributes" lazy="false">    
+     <id name="Id"     
+        length="10">
+      <generator class="assigned"/>
+    </id>
+    
+		<!-- <property name="Id" not-null="true" column="AttribHex"/>-->
+		<property name="Name" not-null="true" column="AttribName"/>    
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="DCS.mPosEngine.Core.Domain.PosSetting,DCS.mPosEngine.Core" mutable="false" lazy="false">
+    <id name="Id">
+      <generator class="identity" />
+    </id>
+    
+    <property name="Section" not-null="true"/>
+    <property name="Key" not-null="true"/>
+    <property name="SettingValue" not-null="false"/>
+
+    <loader query-ref="GetSettings"/>        
+  </class>
+
+  <sql-query name="GetSettings">
+    <return alias="setting" class="DCS.mPosEngine.Core.Domain.PosSetting,DCS.mPosEngine.Core" />
+    select
+    mPosSettingsMaster.Id,
+    mPosSettingsMaster.Section,
+    mPosSettingsMaster.[Key],
+    mPosSettingsValues.Value as 'SettingValue'
+
+
+    from
+    mPosSettingsMaster
+
+    left join
+    mPosSettingsValues
+    on mPosSettingsMaster.Id=mPosSettingsValues.SettingId
+
+    WHERE
+    (mPosSettingsMaster.IsGlobal =1 AND mPosSettingsValues.PosName='') OR (NOT mPosSettingsMaster.IsGlobal =1 AND mPosSettingsValues.PosName = :posName)
+
+  </sql-query>
+  
+</hibernate-mapping>

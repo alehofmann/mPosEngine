@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+	<class name="DCS.PlaycardBase.Core.CardDomain.CardDbData,DCS.PlaycardBase.Core" table="datCards"  lazy="false">
+		<id name="Id">
+			<generator class="identity" />
+		</id>
+
+		<property name="ConsecutiveDaysUsed" not-null="true"/>
+		<property name="TotalDaysUsed" not-null="true"/>
+		<property name="TotalSwipes" not-null="true"/>
+		<property name="DatePurchased" not-null="false"/>		
+		<property name="IsActive" not-null="true"/>
+		<property name="MainStatus" not-null="false"/>
+		<property name="TicketsType" not-null="true"/>
+		<property name="TimecardStatus" not-null="false"/>
+		<property name="Number" not-null="false"/>
+		
+	</class>
+
+</hibernate-mapping>

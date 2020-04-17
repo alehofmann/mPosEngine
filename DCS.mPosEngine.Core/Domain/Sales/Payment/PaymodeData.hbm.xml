@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="DCS.mPosEngine.Core.Domain.Sales.Payment.PaymodeData,DCS.mPosEngine.Core" table="mPosPaymentData" lazy="false">
+    <id name="Id">
+      <generator class="identity" />
+    </id>
+
+    <discriminator column="PaymodeType"
+			not-null="true"
+			type="System.String"/>
+    
+    <subclass name="DCS.mPosEngine.Core.Domain.Sales.Payment.CashPaymodeData,DCS.mPosEngine.Core" discriminator-value="CASH" lazy="false">
+    </subclass>
+
+    <subclass name="DCS.mPosEngine.Core.Domain.Sales.Payment.UnknownPaymodeData,DCS.mPosEngine.Core" discriminator-value="UNKNOWN" lazy="false">
+    </subclass>
+    
+    <subclass name="DCS.mPosEngine.Core.Domain.Sales.Payment.CreditCardData,DCS.mPosEngine.Core" discriminator-value="CCARD" lazy="false">
+      <property name="CardNumber" column="CreditCardNumber" not-null="false" access="field.camelcase-underscore"/>
+      <property name="CardType" column="CreditCardType" not-null="false" access="field.camelcase-underscore"/>
+      <property name="AuthorizationReference" column="CreditCardAuthReference" not-null="false" access="field.camelcase-underscore"/>
+      <property name="DebugInfo" column="CreditCardDebugInfo" not-null="false" access="field.camelcase-underscore"/>
+    </subclass>
+
+    <subclass name="DCS.mPosEngine.Core.Domain.Sales.Payment.PlaycardData,DCS.mPosEngine.Core" discriminator-value="PLAYCARD" lazy="false">
+      <property name="CardNumber" column="PlaycardNumber" not-null="false" access="field.camelcase-underscore"/>
+    </subclass>    
+
+
+
+  </class>
+
+</hibernate-mapping>

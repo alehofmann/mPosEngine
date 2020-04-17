@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="DCS.PlaycardBase.Core.CardDomain.CardHistoryLine,DCS.PlaycardBase.Core" mutable="false" lazy="false">
+
+    <composite-id>
+      <key-property name ="transdate" column="transdate"/>
+      <key-property name ="concept" column="concept"/>
+      <key-property name ="countername" column="countername"/>
+      <key-property name ="amount" column="amount"/>     
+    </composite-id>
+    
+        
+    <property name="transdate" not-null="true"/>
+    <property name="opname" not-null="true"/>
+    <property name="quantity" not-null="false"/>
+    <property name="GameID" not-null="false"/>
+    <property name="concept" not-null="false"/>
+    <property name="countername" not-null="false"/>
+    <property name="amount" not-null="false"/>
+    <property name="optype" not-null="false"/>
+    <property name="transid" not-null="false"/>
+    <property name="storeid" not-null="false"/>
+    <property name="Operator" not-null="false"/>
+  </class>
+  
+    
+    <sql-query name="GetCardHistory">
+      <return class="DCS.PlaycardBase.Core.CardDomain.CardHistoryLine,DCS.PlaycardBase.Core" />
+      <!-- <return alias="CardHistoryLine" type="DCS.PlaycardBase.Core.CardDomain.CardHistoryLine,DCS.PlaycardBase.Core" />-->
+      exec dbo.sp_GetCardHistoryMaster :cardNumber, :maxLines      
+    </sql-query>
+    
+	
+
+</hibernate-mapping>

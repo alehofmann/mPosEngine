@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="DCS.mPosEngine.Core.Domain.SystemConfig,DCS.mPosEngine.Core" table="cnfSystemConfig" lazy="false">
+	  <composite-id>
+		  <key-property name="Program" />
+		  <key-property name="Section" />
+		  <key-property name="Key" column="[Key]"/>
+	  </composite-id>
+		
+    <!-- <property name="Program" not-null="true"/>
+    <property name="Section" not-null="true"/>
+    <property name="Key" not-null="true"/>-->
+		
+    <property name="Value" not-null="true"/>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="DCS.PlaycardBase.Core.GeneralDomain.ConversionTableItem,DCS.PlaycardBase.Core" table="cnfConversionTableItem"  lazy="false">
+    <composite-id>
+      <key-property name ="ConversionTableId" column="ConversionTableID"/>
+      <key-property name ="OriginalAmount" column="OriginalAmount"/>      
+    </composite-id>
+
+    <property name="OriginalAmount" not-null="true"/>
+    <property name="ConvertedAmount" not-null="true"/>
+
+    <!-- <many-to-one name="Product" class="DCS.PlaycardBase.Core.PosDomain.Product,DCS.PlaycardBase.Core" column="ProductId" not-null="true"/>-->
+    <!-- <many-to-one name="ConversionTable" class="DCS.PlaycardBase.Core.GeneralDomain.ConversionTable,DCS.PlaycardBase.Core" column="ConversionTableID" not-null="true"/>    -->
+    
+  </class>
+
+</hibernate-mapping>

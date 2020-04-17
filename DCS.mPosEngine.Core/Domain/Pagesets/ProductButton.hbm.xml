@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+  <class name="DCS.mPosEngine.Core.Domain.Pagesets.ProductButton,DCS.mPosEngine.Core" table="mPosProductButtons" lazy="false">
+    <composite-id>      
+      <key-many-to-one name="Product" class="DCS.mPosEngine.Core.Domain.Sales.Product,DCS.mPosEngine.Core" column="ProductId" />
+      <key-many-to-one name="Page" class="DCS.mPosEngine.Core.Domain.Pagesets.ProductPage,DCS.mPosEngine.Core" column="PageId" />        
+    </composite-id>
+      
+
+    <property name="DisplayOrder" not-null="true"/>
+    <property name="ButtonSize" not-null="true"/>
+
+  </class>
+
+</hibernate-mapping>

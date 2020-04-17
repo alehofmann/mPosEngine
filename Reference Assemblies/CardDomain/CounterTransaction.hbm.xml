@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="DCS.PlaycardBase.Core.CardDomain.CounterTransaction,DCS.PlaycardBase.Core" table="logCounterTransactionsMaster"  lazy="false">
+		<id name="Id">
+			<generator class="identity" />
+		</id>
+
+		<property name="TransDate" not-null="true"/>				
+
+		<set name="Items" inverse="true" cascade="all-delete-orphan" lazy="false">
+			<key column="TransactionId"/>
+			<one-to-many class="DCS.PlaycardBase.Core.CardDomain.CounterTransactionItem" />
+		</set>
+		
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+	<class name="DCS.PlaycardBase.Core.PosDomain.ProductCombo,DCS.PlaycardBase.Core" table="cnfProductCombos" lazy="false">
+		<id name="Id">
+			<generator class="identity" />
+		</id>
+
+		<property name="CustomId" not-null="true"/>
+		<property name="Name" not-null="true"/>
+
+    <set name="Items" inverse="true" cascade="all-delete-orphan" lazy="false">
+      <key column="ComboId"/>
+      <one-to-many class="DCS.PlaycardBase.Core.PosDomain.ComboItem" />
+    </set>
+    
+	</class>
+
+</hibernate-mapping>

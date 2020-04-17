@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+
+	<class name="DCS.PlaycardBase.Core.CardDomain.PlaycardStatus,DCS.PlaycardBase.Core" table="cnfStatuses"  lazy="false">
+		<id name="Id">
+			<generator class="identity" />
+		</id>
+
+		<property name="LegacyId" not-null="false"/>
+		<property name="Name" not-null="true"/>
+		<property name="LegacyGxMask" not-null="false"/>
+		<property name="StatusType" not-null="true"/>		
+		<property name="DiscountType" not-null="true"/>
+		<property name="DiscountAmount" not-null="true"/>
+		<property name="PlayAmountToPromote" not-null="true"/>
+		<property name="DaysToExpire" not-null="true"/>
+		<property name="ShowInGame" not-null="true"/>
+    <property name="CardRangeFrom" not-null="false"/>
+    <property name="CardRangeTo" not-null="false"/>
+		
+	</class>
+
+</hibernate-mapping>

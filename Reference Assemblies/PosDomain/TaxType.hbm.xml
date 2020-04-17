@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  
+	<class name="DCS.PlaycardBase.Core.PosDomain.TaxType,DCS.PlaycardBase.Core" table="cnfTaxTypes" lazy="false">
+		<id name="Id">
+			<generator class="identity" />
+		</id>
+
+		<property name="Description" not-null="true"/>
+    <property name="TaxMode" not-null="true"/>
+    <property name="TaxRate" not-null="true"/>
+    <property name="IsNotAccumulative" column="OperationAmountIsTaxBase" not-null="true"/>
+    <property name="ApplyToEverything" not-null="true"/>
+
+    
+    
+	</class>
+  
+  
+  
+
+</hibernate-mapping>
